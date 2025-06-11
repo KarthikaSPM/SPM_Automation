@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="~{fragment/headTag :: headTag('Home Page')}"></head>
+<body>
+
+<!-- Top Header -->
+<div class="bg-light py-2 border-bottom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <small class="text-muted">Friday, October 18, 2024</small>
+            </div>
+            <div class="col-md-6 text-end">
+                <small class="text-muted me-3">Crisl <span class="text-danger">-1.26 %</span></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Header -->
+<header class="bg-white py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-2">
+                <i class="fas fa-search text-muted"></i>
+            </div>
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 fw-bold text-uppercase mb-0">NewsWaves</h1>
+            </div>
+            <div class="col-md-2 text-end">
+                <button class="btn btn-secondary me-2">Login</button>
+                <button class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Language Bar -->
+<div class="bg-light py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <a href="#" class="text-decoration-none text-dark me-4 fw-bold">English</a>
+                <a href="#" class="text-decoration-none text-muted me-4">Spanish</a>
+                <a href="#" class="text-decoration-none text-muted me-4">French</a>
+                <a href="#" class="text-decoration-none text-muted me-4">Chinese</a>
+                <a href="#" class="text-decoration-none text-muted">Arabic</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        World News
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        National News
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Business
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Technology
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Science
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Health
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Entertainment
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Sports
+                    </a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Lifestyle
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-muted" href="#" role="button" data-bs-toggle="dropdown">
+                        Education
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Left Content -->
+        <div class="col-lg-8">
+            <!-- Education Section -->
+            <div class="mb-4">
+                <div class="d-flex mb-3">
+                    <span class="badge bg-secondary me-2">Education</span>
+                    <span class="badge bg-light text-dark">Schooling</span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="h4 fw-bold text-dark mb-3">
+                            a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+                        </h2>
+                        <p class="text-muted small">
+                            now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             class="img-fluid rounded" alt="University Building">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Higher Education Section -->
+            <div class="mt-5">
+                <div class="d-flex mb-3">
+                    <span class="badge bg-secondary me-2">Education</span>
+                    <span class="badge bg-light text-dark">Higher Education</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="col-lg-4">
+            <!-- Advertisement -->
+            <div class="mb-4">
+                <h5 class="text-center text-muted mb-3">Advertisement</h5>
+                <div class="bg-dark text-white p-4 rounded text-center">
+                    <h6 class="text-uppercase">Samsung</h6>
+                    <div class="my-3">
+                        <h5>Solve for Tomorrow</h5>
+                        <small>Powering Students Changemaker Future</small>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <i class="fas fa-user-graduate text-info me-2"></i>
+                        <i class="fas fa-laptop text-warning me-2"></i>
+                        <i class="fas fa-chart-line text-success me-2"></i>
+                        <i class="fas fa-lightbulb text-danger me-2"></i>
+                        <i class="fas fa-rocket text-primary"></i>
+                    </div>
+                    <button class="btn btn-outline-light btn-sm">Learn more</button>
+                </div>
+            </div>
+
+            <!-- Beauty Article -->
+            <div class="mb-4">
+                <h6 class="fw-bold">Beauty in a Bottle drink your dose of radiance</h6>
+            </div>
+
+            <!-- Breaking News -->
+            <div>
+                <h5 class="text-danger fw-bold">Breaking News</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">BOLIVIA</small>
+                    <i class="fas fa-chevron-down text-muted"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="~{fragment/jsTag}"></div>
+</body>
+</html>
