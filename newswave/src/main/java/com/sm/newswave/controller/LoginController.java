@@ -1,6 +1,6 @@
-package com.sm.newswave.login;
+package com.sm.newswave.controller;
 
-import com.sm.newswave.user.User;
+import com.sm.newswave.model.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.AuthenticationException;

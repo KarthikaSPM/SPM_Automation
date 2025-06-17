@@ -1,7 +1,7 @@
-package com.sm.newswave.login;
+package com.sm.newswave.controller;
 
-import com.sm.newswave.user.User;
-import com.sm.newswave.user.UserService;
+import com.sm.newswave.model.User;
+import com.sm.newswave.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;

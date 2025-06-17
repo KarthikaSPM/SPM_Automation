@@ -1,5 +1,6 @@
-package com.sm.newswave.user;
+package com.sm.newswave.repository;
 
+import com.sm.newswave.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

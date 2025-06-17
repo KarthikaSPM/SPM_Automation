@@ -1,6 +1,6 @@
 package com.sm.newswave.config;
 
-import com.sm.newswave.user.UserDetailService;
+import com.sm.newswave.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

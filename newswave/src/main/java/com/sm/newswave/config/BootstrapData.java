@@ -1,7 +1,7 @@
 package com.sm.newswave.config;
 
-import com.sm.newswave.user.User;
-import com.sm.newswave.user.UserService;
+import com.sm.newswave.model.User;
+import com.sm.newswave.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

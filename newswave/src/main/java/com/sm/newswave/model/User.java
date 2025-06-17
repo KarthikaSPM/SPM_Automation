@@ -1,4 +1,4 @@
-package com.sm.newswave.user;
+package com.sm.newswave.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
