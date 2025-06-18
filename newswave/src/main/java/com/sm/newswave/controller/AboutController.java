@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping
-public class HomeController {
-
+@RequestMapping("about")
+public class AboutController {
     @GetMapping
-    public String getHome(HttpServletRequest request, Model model) {
+    public String getAbout(HttpServletRequest request, Model model) {
         model.addAttribute("requestURI", request.getRequestURI());
-        model.addAttribute("title", "Home");
-        model.addAttribute("content", "home/index");
+        model.addAttribute("title", "About");
+        model.addAttribute("content", "about/index");
         return "layout/index";
     }
 }
