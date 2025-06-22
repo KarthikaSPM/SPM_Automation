@@ -14,7 +14,7 @@ public class HomeController {
     public String getHome(HttpServletRequest request, Model model) {
         model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("title", "Home");
-        model.addAttribute("content", "home/index");
-        return "layout/index";
+        model.addAttribute("content", "home");
+        return "layout";
     }
 }

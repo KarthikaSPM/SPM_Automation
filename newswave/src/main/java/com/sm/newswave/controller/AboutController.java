@@ -13,7 +13,7 @@ public class AboutController {
     public String getAbout(HttpServletRequest request, Model model) {
         model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("title", "About");
-        model.addAttribute("content", "about/index");
-        return "layout/index";
+        model.addAttribute("content", "about");
+        return "layout";
     }
 }

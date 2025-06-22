@@ -50,7 +50,7 @@ public class LoginController {
                 model.addAttribute("errorMessage", errorMessage);
             }
 
-            return "login/index"; // Make sure this matches your template path
+            return "login"; // Make sure this matches your template path
     }
 
 }

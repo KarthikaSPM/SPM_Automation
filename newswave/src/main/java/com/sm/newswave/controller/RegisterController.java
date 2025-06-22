@@ -20,7 +20,7 @@ public class RegisterController {
     @GetMapping
     public String getRegister(Model model) {
         model.addAttribute("register", new User());
-        return "register/index";
+        return "register";
     }
 
     @PostMapping
@@ -30,7 +30,7 @@ public class RegisterController {
             RedirectAttributes redirectAttributes) {
 
         if (result.hasErrors()) {
-            return "register/index";
+            return "register";
         }
 
         try {
