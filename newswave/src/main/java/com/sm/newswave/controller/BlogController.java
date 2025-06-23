@@ -28,12 +28,12 @@ public class BlogController {
     }
 
     @GetMapping("/{path}")
-    public String getPost(@PathVariable("path") String path, HttpServletRequest request, Model model) {
+    public String getPostByPath(@PathVariable("path") String path, HttpServletRequest request, Model model) {
         BlogPost blogPost = blogService.findBlogPostByBlogUrl(path);
         model.addAttribute("post", blogPost);
         model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("title", blogPost.getTitle());
-        model.addAttribute("content", "blog/" + path);
+        model.addAttribute("content", "blog/post");
         return "layout";
     }
 }

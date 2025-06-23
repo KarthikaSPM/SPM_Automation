@@ -1,7 +1,7 @@
-<div>
+<div class="container">
   <!-- Blog Hero -->
-  <section class="bg-light py-5 rounded-3 mb-5">
-    <div class="container py-4 text-center">
+  <section class="py-3 rounded-3 mb-3">
+    <div class="container text-center">
       <h1 class="display-4 fw-bold mb-3">Spiritual Reflections</h1>
       <p class="lead">Thoughts on faith, meaning, and finding hope in challenging times</p>
     </div>
@@ -11,8 +11,8 @@
   <div class="row">
     <!-- Main Content -->
     <div class="col-lg-8">
-      <div class="row g-4" th:each="post : ${postPage}">
-        <div class="col-md-6">
+      <div class="row g-4" >
+        <div class="col-md-6" th:each="post : ${postPage}">
           <div class="card h-100 border-0 shadow-sm">
             <img th:src="${post.imageUrl}" class="card-img-top" alt="Blog post image">
             <div class="card-body">
@@ -24,7 +24,7 @@
               <p class="card-text" th:text="${post.summary}">Post summary...</p>
             </div>
             <div class="card-footer bg-transparent border-0">
-              <a th:href="@{'/blog/post/' + ${post.id}}" class="btn btn-sm btn-outline-primary">Read More</a>
+              <a th:href="@{'/blog/post/' + ${post.id}}" class="btn btn-sm btn-outline-danger">Read More</a>
             </div>
           </div>
         </div>
@@ -56,12 +56,6 @@
 
     <!-- Sidebar -->
     <div class="col-lg-4">
-      <div class="card border-0 shadow-sm mb-4">
-        <div class="card-body">
-          <h3 class="h5 card-title">About the Blog</h3>
-          <p class="card-text">These reflections emerge from my work accompanying people through life's most challenging moments. Names and identifying details are always changed to protect confidentiality.</p>
-        </div>
-      </div>
 
       <div class="card border-0 shadow-sm mb-4">
         <div class="card-body">
