@@ -27,11 +27,13 @@ public class ContactController {
 
     @GetMapping
     public String getContact(HttpServletRequest request, Model model) {
+
         model.addAttribute("contactForm", new Contact());
         model.addAttribute("requestURI", request.getRequestURI());
         model.addAttribute("title", "Contact");
         model.addAttribute("content", "contact");
         return "layout";
+
     }
 
     @PostMapping

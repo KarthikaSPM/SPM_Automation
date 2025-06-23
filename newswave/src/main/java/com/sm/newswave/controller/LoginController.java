@@ -34,7 +34,6 @@ public class LoginController {
             if (error != null) {
                 HttpSession session = request.getSession(false);
                 String errorMessage = null;
-
                 if (session != null) {
                     AuthenticationException ex = (AuthenticationException) session
                             .getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
@@ -42,11 +41,9 @@ public class LoginController {
                         errorMessage = ex.getMessage();
                     }
                 }
-
                 if (errorMessage == null || errorMessage.isEmpty()) {
                     errorMessage = "Invalid username or password!";
                 }
-
                 model.addAttribute("errorMessage", errorMessage);
             }
 

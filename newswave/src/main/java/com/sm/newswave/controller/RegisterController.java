@@ -28,11 +28,9 @@ public class RegisterController {
             @Valid @ModelAttribute("register") User user,
             BindingResult result,
             RedirectAttributes redirectAttributes) {
-
         if (result.hasErrors()) {
             return "register";
         }
-
         try {
             userService.registerUser(user);
             redirectAttributes.addFlashAttribute("successMessage", "Registration successful! You can now login.");

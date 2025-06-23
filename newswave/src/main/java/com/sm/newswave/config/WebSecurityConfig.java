@@ -29,7 +29,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/", "/image/**", "/register/**", "/login/**"
                                 , "/h2-console/**", "/bootstrap/**", "/fontawesome/**"
                                 , "/general/**","/resources/**", "/about/**"
-                                , "/contact/**")
+                                , "/contact/**", "/blog/**")
                         .permitAll()
                         .anyRequest().authenticated()
                 )

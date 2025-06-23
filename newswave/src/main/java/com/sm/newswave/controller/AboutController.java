@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("about")
 public class AboutController {
+
     @GetMapping
     public String getAbout(HttpServletRequest request, Model model) {
         model.addAttribute("requestURI", request.getRequestURI());
@@ -16,4 +17,5 @@ public class AboutController {
         model.addAttribute("content", "about");
         return "layout";
     }
+
 }
