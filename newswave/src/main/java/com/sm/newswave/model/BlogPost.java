@@ -27,6 +27,7 @@ public class BlogPost {
 
     private String imageUrl;
     private String blogUrl;
+    private boolean commentFlag;
 
     @UpdateTimestamp
     private LocalDate publishedDate;
