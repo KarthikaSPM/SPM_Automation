@@ -1,14 +1,12 @@
 package com.sm.newswave.model;
 
-    import jakarta.persistence.*;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
-import lombok.Data;
-    import lombok.Getter;
-    import lombok.Setter;
-    import org.hibernate.annotations.CreationTimestamp;
-    import org.hibernate.annotations.UpdateTimestamp;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
-    import java.time.LocalDateTime;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity @Getter @Setter
