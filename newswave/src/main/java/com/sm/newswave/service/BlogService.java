@@ -2,7 +2,6 @@ package com.sm.newswave.service;
 
 import com.sm.newswave.model.BlogComment;
 import com.sm.newswave.model.BlogPost;
-import com.sm.newswave.repository.BlogCommentRepository;
 import com.sm.newswave.repository.BlogPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,9 +16,6 @@ public class BlogService {
 
     @Autowired
     BlogPostRepository blogPostRepository;
-
-    @Autowired
-    BlogCommentRepository blogCommentRepository;
 
     public Page<BlogPost> blogPostPageRequest(int page, int pageSize) {
         return blogPostRepository.findAll(
