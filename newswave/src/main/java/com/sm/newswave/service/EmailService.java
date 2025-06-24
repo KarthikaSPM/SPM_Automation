@@ -1,8 +1,6 @@
 package com.sm.newswave.service;
 
 import com.sm.newswave.model.Contact;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
