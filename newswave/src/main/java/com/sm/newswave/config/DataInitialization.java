@@ -28,7 +28,7 @@ public class DataInitialization {
                 mainAuthor.setName("Rev. Dr. Sarah Johnson");
                 mainAuthor.setCredentials("Board Certified Chaplain, MDiv, BCC");
                 mainAuthor.setBio("With over 15 years of experience in hospital and hospice chaplaincy, Dr. Johnson brings deep spiritual care expertise to the digital space.");
-                mainAuthor.setAvatarUrl("https://via.placeholder.com/150?text=SJ");
+                mainAuthor.setAvatarUrl("/image/Swathi.jpg");
                 authorRepository.save(mainAuthor);
 
                 // Create sample blog posts
@@ -36,7 +36,7 @@ public class DataInitialization {
                         "Finding Hope in Difficult Times",
                         "How spiritual practices can sustain us during challenges",
                         "In my years as a chaplain, I've witnessed how spiritual practices...",
-                        "https://via.placeholder.com/800x400?text=Hope",
+                        "/image/blog/first_photo1.jpg", "first",
                         LocalDate.now().minusDays(7),
                         mainAuthor,
                         Arrays.asList("hope", "spirituality", "resilience")
@@ -46,7 +46,7 @@ public class DataInitialization {
                         "The Art of Spiritual Listening",
                         "Essential skills for meaningful spiritual conversations",
                         "Active listening forms the foundation of all chaplaincy work...",
-                        "https://via.placeholder.com/800x400?text=Listening",
+                        "/image/blog/second_crispr.png", "second",
                         LocalDate.now().minusDays(14),
                         mainAuthor,
                         Arrays.asList("listening", "communication", "chaplaincy")
@@ -56,7 +56,7 @@ public class DataInitialization {
                         "Virtual Chaplaincy: Challenges and Blessings",
                         "Reflections on providing spiritual care remotely",
                         "The pandemic accelerated the adoption of telechaplaincy...",
-                        "https://via.placeholder.com/800x400?text=Virtual",
+                        "/image/blog/third_photo1.png", "third",
                         LocalDate.now().minusDays(21),
                         mainAuthor,
                         Arrays.asList("telechaplaincy", "technology", "innovation")
@@ -76,13 +76,14 @@ public class DataInitialization {
     }
 
     private BlogPost createBlogPost(String title, String summary, String content,
-                                    String imageUrl, LocalDate publishedDate,
+                                    String imageUrl, String blogUrl, LocalDate publishedDate,
                                     Author author, List<String> tags) {
         BlogPost post = new BlogPost();
         post.setTitle(title);
         post.setSummary(summary);
         post.setContent(content);
         post.setImageUrl(imageUrl);
+        post.setBlogUrl(blogUrl);
         post.setPublishedDate(publishedDate);
         post.setAuthor(author);
         post.setTags(tags);

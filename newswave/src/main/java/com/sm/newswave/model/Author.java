@@ -3,9 +3,10 @@ package com.sm.newswave.model;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import lombok.Setter;
 
-@Entity @Data
+@Entity @Getter @Setter
 @Table(name = "authors")
 public class Author {
 

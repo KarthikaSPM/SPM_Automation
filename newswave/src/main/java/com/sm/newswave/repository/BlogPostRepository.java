@@ -13,4 +13,6 @@ public interface BlogPostRepository extends JpaRepository<BlogPost, Long> {
     List<BlogPost> findTopByOrderByPublishedDateDesc(Pageable pageable);
 
     BlogPost findBlogPostByBlogUrl(String url);
+
+    BlogPost findBlogPostById(Long postId);
 }

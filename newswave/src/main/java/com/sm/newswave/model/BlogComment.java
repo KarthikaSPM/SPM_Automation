@@ -1,14 +1,17 @@
 package com.sm.newswave.model;
 
-import jakarta.persistence.*;
+    import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
+    import lombok.Getter;
+    import lombok.Setter;
+    import org.hibernate.annotations.CreationTimestamp;
+    import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDateTime;
+    import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity @Data
+@Entity @Getter @Setter
 public class BlogComment {
 
     @Id
@@ -21,15 +24,16 @@ public class BlogComment {
 
     private String content;
 
+    @CreationTimestamp
     private LocalDateTime date;
 
     @ManyToOne
     private BlogPost post;
 
-    @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL)
-    private List<BlogComment> replies;
-
     @ManyToOne
     private BlogComment parentComment;
+
+    @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL)
+    private List<BlogComment> replies;
 
 }

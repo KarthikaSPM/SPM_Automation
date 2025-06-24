@@ -13,7 +13,7 @@
     <div class="col-lg-8">
       <div class="row g-4" >
         <div class="col-md-6" th:each="post : ${postPage}">
-          <div class="card h-100 border-0 shadow-sm">
+          <div class="card h-100 border-0 shadow-sm card-bg">
             <img th:src="${post.imageUrl}" class="card-img-top" alt="Blog post image">
             <div class="card-body">
               <div class="d-flex justify-content-between small text-muted mb-2">
@@ -24,7 +24,7 @@
               <p class="card-text" th:text="${post.summary}">Post summary...</p>
             </div>
             <div class="card-footer bg-transparent border-0">
-              <a th:href="@{'/blog/post/' + ${post.id}}" class="btn btn-sm btn-outline-danger">Read More</a>
+              <a th:href="@{'/blog/' + ${post.blogUrl}}" class="btn btn-sm btn-outline-danger">Read More</a>
             </div>
           </div>
         </div>
@@ -57,35 +57,35 @@
     <!-- Sidebar -->
     <div class="col-lg-4">
 
-      <div class="card border-0 shadow-sm mb-4">
-        <div class="card-body">
+      <div class="card border-0 shadow-sm mb-4 body-bg">
+        <div class="card-body body-bg">
           <h3 class="h5 card-title">Categories</h3>
           <div class="list-group list-group-flush">
-            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Grief & Loss <span class="badge bg-primary rounded-pill">14</span>
+            <a href="#" class="list-group-item list-group-item-action card-bg d-flex justify-content-between align-items-center">
+              Grief & Loss <span class="badge bg-danger rounded-pill">14</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Spiritual Practices <span class="badge bg-primary rounded-pill">8</span>
+            <a href="#" class="list-group-item list-group-item-action card-bg d-flex justify-content-between align-items-center">
+              Spiritual Practices <span class="badge bg-danger rounded-pill">8</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Healthcare Chaplaincy <span class="badge bg-primary rounded-pill">5</span>
+            <a href="#" class="list-group-item list-group-item-action card-bg d-flex justify-content-between align-items-center">
+              Healthcare Chaplaincy <span class="badge bg-danger rounded-pill">5</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Interfaith Perspectives <span class="badge bg-primary rounded-pill">12</span>
+            <a href="#" class="list-group-item list-group-item-action card-bg d-flex justify-content-between align-items-center">
+              Interfaith Perspectives <span class="badge bg-danger rounded-pill">12</span>
             </a>
           </div>
         </div>
       </div>
 
-      <div class="card border-0 shadow-sm">
-        <div class="card-body">
+      <div class="card border-0 shadow-sm body-bg">
+        <div class="card-body body-bg">
           <h3 class="h5 card-title">Subscribe</h3>
           <p class="card-text">Get new posts delivered to your inbox</p>
           <form>
             <div class="mb-3">
               <input type="email" class="form-control" placeholder="Your email address">
             </div>
-            <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+            <button type="submit" class="btn btn-danger w-100">Subscribe</button>
           </form>
         </div>
       </div>

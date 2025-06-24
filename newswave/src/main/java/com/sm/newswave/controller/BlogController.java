@@ -1,15 +1,15 @@
 package com.sm.newswave.controller;
 
+import com.sm.newswave.model.BlogComment;
 import com.sm.newswave.model.BlogPost;
 import com.sm.newswave.service.BlogService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/blog")
@@ -36,4 +36,20 @@ public class BlogController {
         model.addAttribute("content", "blog/post");
         return "layout";
     }
+
+    @PostMapping("/{postId}/comment")
+    public String addComment(@PathVariable Long postId,
+                             @RequestParam(required = false) Long comId,
+                             BlogComment comment) {
+        blogService.addComment(postId, comId, comment);
+        return "redirect:/blog/" + blogService.findBlogPostById(postId).getBlogUrl();
+    }
+
+    @PostMapping("/{postId}/react/{reaction}")
+    @ResponseBody
+    public String addReaction(@PathVariable Long postId, @PathVariable String reaction) {
+        int newCount = blogService.addReaction(postId, reaction);
+        return "{\"success\": true, \"newCount\": " + newCount + "}";
+    }
+
 }

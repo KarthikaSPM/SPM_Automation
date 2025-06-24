@@ -26,6 +26,34 @@ document.addEventListener('DOMContentLoaded', function () {
             bsAlert.close();
         });
     }, 10000);
+
+    // Reaction buttons functionality
+    document.querySelectorAll('.reaction-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const reaction = this.getAttribute('data-reaction');
+            const postId = this.getAttribute('post-id');
+
+            fetch('/blog/' + postId + '/react/' + reaction, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ reaction: reaction })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success) {
+                        // Update the count on the button
+                        const badge = this.querySelector('.badge');
+                        badge.textContent = data.newCount;
+                        // Visual feedback
+                        this.classList.add('disabled');
+                        //this.classList.remove('reaction-btn');
+                    }
+                });
+        });
+    });
 });
 
 function updateTimeLive() {
