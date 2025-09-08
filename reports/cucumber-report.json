@@ -1,0 +1,54 @@
+[
+  {
+    "description": "    This is features of test1",
+    "elements": [
+      {
+        "description": "",
+        "id": "test1-features;test1-scenarios",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Test1 Scenarios",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I open chrome browser",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I navigate to \"www.google.com\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I click on search button",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "test1-features",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Test1 Features",
+    "tags": [],
+    "uri": "src/test/demo/features/test1.feature"
+  }
+]

@@ -1,0 +1,18 @@
+{
+    "default": {
+        "dryRun": false,
+        "requireModule": ["ts-node/register"],
+        "require": ["src/steps/**/*.ts"],
+        "paths": ["src/test/**/*.feature"],
+        "format": [
+            "json:reports/cucumber-report.json",
+            "html:reports/cucumber-report.html"
+        ],
+        "formalOptions": {
+            "snippetInterface": "async-await"
+        },
+        "publish": false,
+        "retry": 1,
+        "parallel": 2
+    }
+}
