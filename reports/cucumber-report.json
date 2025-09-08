@@ -13,10 +13,13 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 5,
-            "name": "I open chrome browser",
+            "name": "I open \"chrome\" browser",
+            "match": {
+              "location": "src/steps/definitions/websteps.ts:3"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 12823427
             }
           },
           {
@@ -24,9 +27,12 @@
             "keyword": "Then ",
             "line": 6,
             "name": "I navigate to \"www.google.com\"",
+            "match": {
+              "location": "src/steps/definitions/websteps.ts:7"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 5397538
             }
           },
           {
@@ -34,9 +40,12 @@
             "keyword": "And ",
             "line": 7,
             "name": "I click on search button",
+            "match": {
+              "location": "src/steps/definitions/websteps.ts:11"
+            },
             "result": {
-              "status": "undefined",
-              "duration": 0
+              "status": "passed",
+              "duration": 3239655
             }
           }
         ],
