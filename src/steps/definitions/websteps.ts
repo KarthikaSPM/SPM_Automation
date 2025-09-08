@@ -9,5 +9,5 @@ When('I navigate to {string}', function(url: string) {
 })
 
 Then('I click on search button', function() {
-    console.log("clicking")
+    console.log("clicking...")
 })
