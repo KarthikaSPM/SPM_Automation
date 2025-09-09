@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 553750
+              "duration": 6121804
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1486776290
+              "duration": 1065976604
             }
           },
           {
@@ -36,11 +36,11 @@
             "line": 6,
             "name": "I navigate to \"https://www.google.com/\"",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:14"
+              "location": "src/definitions/steps/WebSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 644414790
+              "duration": 2567692391
             }
           },
           {
@@ -49,11 +49,11 @@
             "line": 7,
             "name": "I click on search button",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:19"
+              "location": "src/definitions/steps/WebSteps.ts:16"
             },
             "result": {
               "status": "passed",
-              "duration": 5005032708
+              "duration": 5010061375
             }
           }
         ],
@@ -72,33 +72,33 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 534457
+              "duration": 6756588
             }
           },
           {
             "arguments": [],
             "keyword": "Given ",
             "line": 10,
-            "name": "I open \"chrome\" browser",
+            "name": "I open \"chromium\" browser",
             "match": {
               "location": "src/definitions/steps/WebSteps.ts:8"
             },
             "result": {
               "status": "passed",
-              "duration": 1477981709
+              "duration": 634711670
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 11,
-            "name": "I navigate to \"https://www.google.com/\"",
+            "name": "I navigate to \"https://www.apple.com/\"",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:14"
+              "location": "src/definitions/steps/WebSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 963873375
+              "duration": 2592703347
             }
           },
           {
@@ -107,11 +107,11 @@
             "line": 12,
             "name": "I click on search button",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:19"
+              "location": "src/definitions/steps/WebSteps.ts:16"
             },
             "result": {
               "status": "passed",
-              "duration": 5001732292
+              "duration": 5012579735
             }
           }
         ],
@@ -130,7 +130,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 531124
+              "duration": 1840645
             }
           },
           {
@@ -143,20 +143,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1464074041
+              "duration": 1519106640
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 16,
-            "name": "I navigate to \"https://www.google.com/\"",
+            "name": "I navigate to \"https://www.youtube.com/\"",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:14"
+              "location": "src/definitions/steps/WebSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 740849041
+              "duration": 3340234464
             }
           },
           {
@@ -165,11 +165,11 @@
             "line": 17,
             "name": "I click on search button",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:19"
+              "location": "src/definitions/steps/WebSteps.ts:16"
             },
             "result": {
               "status": "passed",
-              "duration": 5002617750
+              "duration": 5002686251
             }
           }
         ],
@@ -188,7 +188,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 622374
+              "duration": 1671489
             }
           },
           {
@@ -201,20 +201,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1481920000
+              "duration": 1571298028
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 21,
-            "name": "I navigate to \"https://www.google.com/\"",
+            "name": "I navigate to \"https://www.amazon.com/\"",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:14"
+              "location": "src/definitions/steps/WebSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 941409709
+              "duration": 443050522
             }
           },
           {
@@ -223,11 +223,11 @@
             "line": 22,
             "name": "I click on search button",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:19"
+              "location": "src/definitions/steps/WebSteps.ts:16"
             },
             "result": {
               "status": "passed",
-              "duration": 5001815083
+              "duration": 5011346715
             }
           }
         ],
@@ -246,7 +246,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 204000
+              "duration": 442155
             }
           },
           {
@@ -259,20 +259,20 @@
             },
             "result": {
               "status": "passed",
-              "duration": 649858207
+              "duration": 362557623
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 27,
-            "name": "I navigate to \"https://www.google.com/\"",
+            "name": "I navigate to \"https://www.tesla.com/\"",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:14"
+              "location": "src/definitions/steps/WebSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 808634667
+              "duration": 1363650476
             }
           },
           {
@@ -281,11 +281,11 @@
             "line": 28,
             "name": "I click on search button",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:19"
+              "location": "src/definitions/steps/WebSteps.ts:16"
             },
             "result": {
               "status": "passed",
-              "duration": 5002219583
+              "duration": 5000214469
             }
           }
         ],

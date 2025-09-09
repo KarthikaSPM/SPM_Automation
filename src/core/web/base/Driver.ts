@@ -44,6 +44,10 @@ export class Driver {
     await this.page.goto(url);
   }
 
+  async takeScreenshot() {
+    return await this.page?.screenshot()
+  }
+
   async closeBrowser() {
     if (this.browser) {
       await this.browser.close();
