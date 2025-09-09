@@ -10,29 +10,37 @@
         "name": "Test1 Scenarios",
         "steps": [
           {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 553750
+            }
+          },
+          {
             "arguments": [],
             "keyword": "Given ",
             "line": 5,
             "name": "I open \"chrome\" browser",
             "match": {
-              "location": "src/steps/definitions/websteps.ts:3"
+              "location": "src/definitions/steps/WebSteps.ts:8"
             },
             "result": {
               "status": "passed",
-              "duration": 36779341
+              "duration": 1486776290
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
             "line": 6,
-            "name": "I navigate to \"www.google.com\"",
+            "name": "I navigate to \"https://www.google.com/\"",
             "match": {
-              "location": "src/steps/definitions/websteps.ts:7"
+              "location": "src/definitions/steps/WebSteps.ts:14"
             },
             "result": {
               "status": "passed",
-              "duration": 5985243
+              "duration": 644414790
             }
           },
           {
@@ -41,11 +49,243 @@
             "line": 7,
             "name": "I click on search button",
             "match": {
-              "location": "src/steps/definitions/websteps.ts:11"
+              "location": "src/definitions/steps/WebSteps.ts:19"
             },
             "result": {
               "status": "passed",
-              "duration": 1076291
+              "duration": 5005032708
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test1-features;test2-scenarios",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Test2 Scenarios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 534457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "I open \"chrome\" browser",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1477981709
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I navigate to \"https://www.google.com/\"",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 963873375
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I click on search button",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5001732292
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test1-features;test3-scenarios",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Test3 Scenarios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 531124
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "I open \"chrome\" browser",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1464074041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "I navigate to \"https://www.google.com/\"",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 740849041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click on search button",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5002617750
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test1-features;test4-scenarios",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Test4 Scenarios",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 622374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "I open \"chrome\" browser",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1481920000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "I navigate to \"https://www.google.com/\"",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 941409709
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I click on search button",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5001815083
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "test1-features;creating-a-program",
+        "keyword": "Scenario",
+        "line": 25,
+        "name": "Creating a program",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 204000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 26,
+            "name": "I open \"chrome\" browser",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 649858207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "I navigate to \"https://www.google.com/\"",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 808634667
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "I click on search button",
+            "match": {
+              "location": "src/definitions/steps/WebSteps.ts:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5002219583
             }
           }
         ],
@@ -58,6 +298,6 @@
     "keyword": "Feature",
     "name": "Test1 Features",
     "tags": [],
-    "uri": "src/test/demo/features/test1.feature"
+    "uri": "test/RA/features/test1.feature"
   }
 ]

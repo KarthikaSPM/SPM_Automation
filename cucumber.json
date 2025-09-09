@@ -13,6 +13,22 @@
         },
         "publish": false,
         "retry": 1,
-        "parallel": 2
+        "parallel": 0
+    },
+    "ra": {
+        "dryRun": false,
+        "requireModule": ["ts-node/register"],
+        "require": ["src/definitions/**/*.ts"],
+        "paths": ["test/RA/features/**/*.feature"],
+        "format": [
+            "json:reports/cucumber-report.json",
+            "html:reports/cucumber-report.html"
+        ],
+        "formalOptions": {
+            "snippetInterface": "async-await"
+        },
+        "publish": false,
+        "retry": 1,
+        "parallel": 4
     }
 }
