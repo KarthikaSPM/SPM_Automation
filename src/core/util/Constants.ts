@@ -1,6 +1,7 @@
 
 import { readFileSync } from 'node:fs';
 import { getProperties } from 'properties-file';
+import * as fileUtil from './FileUtil'
 import path from 'path';
 
 export class Constants {
@@ -20,5 +21,7 @@ export class Constants {
     static BROWSWER_SLOWMO: number = parseInt(Constants.PROPERTIES['browser.slowmo'] || '0')
     static STEPWISE_SCREENSHOT: boolean = Constants.PROPERTIES['stepwise.screenshot'] === 'true'
     static PAGE_OBJECT_TYPE: string = Constants.PROPERTIES['page.object.type'] || 'yaml'
+
+    static LOCATORS: any = fileUtil.mergeYamlFiles(fileUtil.readAllFileNames(Constants.APPL_DATA_PATH, '.' + Constants.PAGE_OBJECT_TYPE))
 
 }

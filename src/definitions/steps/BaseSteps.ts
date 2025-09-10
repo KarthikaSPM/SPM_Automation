@@ -8,7 +8,8 @@ export class BaseSteps extends World{
     protected pageObject: PageObject | null = null;
 
     constructor(options: IWorldOptions) {
-        super(options);    
+        super(options);
+        this.initialize();   
     }
 
     async initialize() {

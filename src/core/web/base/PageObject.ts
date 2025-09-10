@@ -1,19 +1,16 @@
 
-import { FileUtil } from '../../util/FileUtil'
 import { Constants } from '../../util/Constants'
 
 export class PageObject {
 
-    private fileUtil = new FileUtil()
-
-    locators: {[page: string]:{[element: string]:{[locator: string]:string}}} = {}
+    private locators: {[page: string]:{[element: string]:{[locator: string]:string}}} = {}
 
     constructor() {
         this.#initialize()
     }
 
     async #initialize() {
-        this.locators = await this.fileUtil.mergeYamlFiles(await this.fileUtil.readAllFileNames(Constants.APPL_DATA_PATH, '.' + Constants.PAGE_OBJECT_TYPE))
+        this.locators = await Constants.LOCATORS
     }
 
     async get(objName: string) {

@@ -37,6 +37,10 @@ export class Driver {
             case 'firefox':
                 this.browser = await firefox.launch(launchOptionsArgs);
                 break;
+            case 'msedge':
+                launchOptionsArgs['channel'] = 'msedge'
+                this.browser = await chromium.launch(launchOptionsArgs);
+                break;
             case 'webkit':
                 this.browser = await webkit.launch(launchOptionsArgs);
                 break;

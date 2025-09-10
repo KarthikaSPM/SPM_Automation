@@ -9,7 +9,7 @@ BeforeAll(async function () {
 })
 
 Before(async function () {
-    await this.initialize()
+    
 })
 
 AfterStep(async function (this: BaseSteps, scenario) {
