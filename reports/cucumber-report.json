@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 6121804
+              "duration": 1943125
             }
           },
           {
@@ -23,11 +23,11 @@
             "line": 5,
             "name": "I open \"chrome\" browser",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:8"
+              "location": "src/definitions/steps/WebSteps.ts:4"
             },
             "result": {
               "status": "passed",
-              "duration": 1065976604
+              "duration": 580584707
             }
           },
           {
@@ -36,11 +36,11 @@
             "line": 6,
             "name": "I navigate to \"https://www.google.com/\"",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:12"
+              "location": "src/definitions/steps/WebSteps.ts:8"
             },
             "result": {
               "status": "passed",
-              "duration": 2567692391
+              "duration": 444188458
             }
           },
           {
@@ -49,243 +49,11 @@
             "line": 7,
             "name": "I click on search button",
             "match": {
-              "location": "src/definitions/steps/WebSteps.ts:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5010061375
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "test1-features;test2-scenarios",
-        "keyword": "Scenario",
-        "line": 9,
-        "name": "Test2 Scenarios",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 6756588
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 10,
-            "name": "I open \"chromium\" browser",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 634711670
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 11,
-            "name": "I navigate to \"https://www.apple.com/\"",
-            "match": {
               "location": "src/definitions/steps/WebSteps.ts:12"
             },
             "result": {
               "status": "passed",
-              "duration": 2592703347
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 12,
-            "name": "I click on search button",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5012579735
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "test1-features;test3-scenarios",
-        "keyword": "Scenario",
-        "line": 14,
-        "name": "Test3 Scenarios",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1840645
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 15,
-            "name": "I open \"chrome\" browser",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1519106640
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 16,
-            "name": "I navigate to \"https://www.youtube.com/\"",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 3340234464
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 17,
-            "name": "I click on search button",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5002686251
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "test1-features;test4-scenarios",
-        "keyword": "Scenario",
-        "line": 19,
-        "name": "Test4 Scenarios",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 1671489
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 20,
-            "name": "I open \"chrome\" browser",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1571298028
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 21,
-            "name": "I navigate to \"https://www.amazon.com/\"",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 443050522
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 22,
-            "name": "I click on search button",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5011346715
-            }
-          }
-        ],
-        "tags": [],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "test1-features;creating-a-program",
-        "keyword": "Scenario",
-        "line": 25,
-        "name": "Creating a program",
-        "steps": [
-          {
-            "keyword": "Before",
-            "hidden": true,
-            "result": {
-              "status": "passed",
-              "duration": 442155
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 26,
-            "name": "I open \"chrome\" browser",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:8"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 362557623
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 27,
-            "name": "I navigate to \"https://www.tesla.com/\"",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:12"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 1363650476
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 28,
-            "name": "I click on search button",
-            "match": {
-              "location": "src/definitions/steps/WebSteps.ts:16"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 5000214469
+              "duration": 696915
             }
           }
         ],
