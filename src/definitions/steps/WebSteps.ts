@@ -10,6 +10,7 @@ When('I navigate to {string}', async function (url: string) {
 })
 
 Then('I click on search button', async function () {
+    
     await Waits.sleep(2000); // Wait for 2 seconds
 })
 

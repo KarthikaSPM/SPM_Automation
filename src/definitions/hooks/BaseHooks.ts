@@ -5,7 +5,7 @@ import { Constants } from "../../core/util/Constants"
 setWorldConstructor(BaseSteps)
 
 BeforeAll(async function () {
-    console.log('Starting test execution...')
+    //console.log('Starting test execution...')
 })
 
 Before(async function () {

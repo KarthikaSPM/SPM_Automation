@@ -12,7 +12,8 @@ export class Constants {
     static SRC_PATH: string | null = Constants.ROOT_PATH + 'src' + path.sep
     static TEST_PATH: string | null = Constants.ROOT_PATH + 'test' + path.sep
 
-    static APPL_PATH: string | null = (Constants.TEST_PATH ?? '') + Constants.PROPERTIES['application'] + path.sep
+    static APPL_NAME: string | null = process.env.profile ?? '' //this is environment variable named "profile" passed thru package.json - scripts
+    static APPL_PATH: string | null = (Constants.TEST_PATH ?? '') + Constants.APPL_NAME + path.sep
     static APPL_DATA_PATH: string = Constants.APPL_PATH + 'data' + path.sep
     static APPL_DATA_INPUT_PATH: string | null = null
     static APPL_DATA_OUTPUT_PATH: string | null = null

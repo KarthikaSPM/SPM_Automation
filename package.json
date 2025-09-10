@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cucumber": "cucumber-js --config cucumber.json",
-    "test": "cucumber-js --config cucumber.json -p ra"
+    "test": "profile=ra cucumber-js --config cucumber.json -p ra"
   },
   "keywords": [],
   "author": "",
