@@ -1,16 +1,22 @@
 import { chromium, firefox, webkit, Browser, BrowserContext, Page } from 'playwright';
 import { Constants } from '../../util/Constants';
+import { PageObject } from '../config/PageObject';
+import {Locator} from "@playwright/test";
 
 export class Driver {
 
-    private browser: Browser | null = null;
-    private context: BrowserContext | null = null;
-    private page: Page | null = null;
+    #pageObject: PageObject
+    #browser: Browser | null = null
+    #context: BrowserContext | null = null
+    page: Page | null = null
+
+    constructor() {
+        this.#pageObject = new PageObject()
+    }
 
     async launchBrowser(browserType: string) {
-
-        if (this.browser) {
-            throw new Error('Browser is already launched');
+        if (this.#browser) {
+            throw new Error('Browser is already launched')
         }
 
         interface args { [key: string]: any }
@@ -24,55 +30,95 @@ export class Driver {
                 '--disable-popup-blocking'],
             headless: Constants.BROWSWER_HEADLESS,
             slowMo: Constants.BROWSWER_SLOWMO
-        };
+        }
 
         switch (browserType) {
             case 'chrome':
                 launchOptionsArgs['channel'] = 'chrome'
-                this.browser = await chromium.launch(launchOptionsArgs);
-                break;
+                this.#browser = await chromium.launch(launchOptionsArgs)
+                break
             case 'chromium':
-                this.browser = await chromium.launch(launchOptionsArgs);
-                break;
+                this.#browser = await chromium.launch(launchOptionsArgs)
+                break
             case 'firefox':
-                this.browser = await firefox.launch(launchOptionsArgs);
-                break;
+                this.#browser = await firefox.launch(launchOptionsArgs)
+                break
             case 'msedge':
                 launchOptionsArgs['channel'] = 'msedge'
-                this.browser = await chromium.launch(launchOptionsArgs);
-                break;
+                this.#browser = await chromium.launch(launchOptionsArgs)
+                break
             case 'webkit':
-                this.browser = await webkit.launch(launchOptionsArgs);
-                break;
+                this.#browser = await webkit.launch(launchOptionsArgs)
+                break
             default:
-                throw new Error(`Unsupported browser type: ${browserType}`);
+                throw new Error(`Unsupported browser type: ${browserType}`)
         }
 
-        this.context = await this.browser.newContext({
+        this.#context = await this.#browser.newContext({
             viewport: { width: 1280, height: 720 },
             recordVideo: { dir: 'reports/videos/' }
-        });
+        })
 
-        this.page = await this.context.newPage();
+        this.page = await this.#context.newPage()
     }
 
-    async navigateTo(url: string) {
-        if (!this.page) {
-            throw new Error('Browser is not launched. Call launchBrowser() first.');
+    async getElement(locatorName: string) {
+        if (!this.page) throw new Error('Browser is not launched. Call launchBrowser() first.')
+        let element: Locator | null = null
+        let [attribute, attributeValue] = await this.#pageObject.get(locatorName)
+        switch (attribute.toLowerCase()) {
+            case 'id':
+                element = await this.page.locator('#' + attributeValue)
+                break
+            case 'label':
+                element = await this.page.getByLabel(attributeValue)
+                break
+            case 'name':
+                element = await this.page.locator('[name="' + attributeValue + '"]')
+                break
+            case 'xpath':
+                element = await this.page.locator(attributeValue)
+                break
+            case 'placeholder':
+                element = await this.page.getByPlaceholder(attributeValue)
+                break
+            case 'title':
+                element = await this.page.getByTitle(attributeValue)
+                break
+            case 'classname':
+                element = await this.page.locator('.' + attributeValue)
+                break
+            case 'text':
+                element = await this.page.getByText(attributeValue)
+                break
+            case 'testid':
+                element = await this.page.getByTestId(attributeValue)
+                break
         }
-        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
-    }
-
-    async takeScreenshot() {
-        return await this.page?.screenshot()
+        if (element) {
+            await element.scrollIntoViewIfNeeded()
+            await element.evaluate(el => {
+                el.setAttribute('style', 'background: GreenYellow; border: 0px solid blue;')
+            })
+            await this.page?.waitForTimeout(100);
+            await element.evaluate(el => {
+                el.setAttribute('style', 'background:; border: 0px solid blue;')
+            })
+        }
+        else {
+            console.log('Can not find the Element:', locatorName)
+            return;
+        }
+        return element;
     }
 
     async closeBrowser() {
-        if (this.browser) {
-            await this.browser.close();
-            this.browser = null;
-            this.context = null;
-            this.page = null;
+        if (this.#browser) {
+            await this.#browser.close()
+            this.#browser = null
+            this.#context = null
+            this.page = null
         }
     }
+
 }

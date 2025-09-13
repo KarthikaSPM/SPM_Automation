@@ -1,20 +1,13 @@
 import { IWorldOptions, World} from "@cucumber/cucumber";
-import { Driver } from "../../core/web/base/Driver";
-import { PageObject } from "../../core/web/base/PageObject";
+import {WebAppDriver} from "../../core/web/WebAppDriver";
 
 export class BaseSteps extends World {
-    
-    protected driver: Driver | null = null
-    protected pageObject: PageObject | null = null
+
+    protected webDriver: WebAppDriver | null = null
 
     constructor(options: IWorldOptions) {
         super(options)
-        this.initialize()
+        this.webDriver = new WebAppDriver()
     }
 
-    async initialize() {
-        this.driver = new Driver()
-        this.pageObject = new PageObject()
-    }
-    
 }

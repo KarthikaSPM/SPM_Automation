@@ -9,3 +9,8 @@ youtube:
   url: {value: 'https://www.youtube.com'}
   searchBox: {xpath: '//*[@placeholder="Search"]'}
   searchButton: {xpath: '//button[@id="search-icon-legacy"]'}
+
+eystore:
+  url: {value: 'https://ey.corpmerchandise.com'}
+  searchBox: {xpath: '//*[@id="searchTextBox"]'}
+  searchButton: {xpath: '//*[@id="search_mini_form"]/div/button'}
