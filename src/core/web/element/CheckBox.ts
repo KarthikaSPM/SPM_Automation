@@ -1,7 +1,7 @@
 
 import { Driver } from "../base/Driver";
 
-export class SendKey {
+export class CheckBox {
 
     #driver: Driver
 
@@ -9,25 +9,27 @@ export class SendKey {
         this.#driver = driver
     }
 
-    async text(locator: string, text: string) {
+    async check(locator: string) {
         let element = await this.#driver.getElement(locator)
         if (element) {
-            await element.fill(text)
+            await element.check()
         }
     }
 
-    async press(locator: string, text: string) {
+    async uncheck(locator: string) {
         let element = await this.#driver.getElement(locator)
         if (element) {
-            await element.press(text)
+            await element.uncheck()
         }
     }
 
-    async clearinput(locator: string) {
+    async toggle(locator: string) {
         let element = await this.#driver.getElement(locator)
-        if (element) {
-            await element.fill('')
+        if (element?.isChecked()) {
+            await element.uncheck()
+        } else {
+            await element?.check()
         }
     }
-    
+
 }

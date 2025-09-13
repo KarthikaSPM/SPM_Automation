@@ -5,18 +5,19 @@ import {Locator} from "@playwright/test";
 
 export class Driver {
 
-    #pageObject: PageObject
-    #browser: Browser | null = null
-    #context: BrowserContext | null = null
+    pageObject: PageObject
+    browser: Browser | null = null
+    context: BrowserContext | null = null
     page: Page | null = null
 
     constructor() {
-        this.#pageObject = new PageObject()
+        this.pageObject = new PageObject()
     }
 
     async launchBrowser(browserType: string) {
-        if (this.#browser) {
-            throw new Error('Browser is already launched')
+        if (this.browser) {
+            await this.closeBrowser()
+            console.log('Existing Browser closed and new one is launched')
         }
 
         interface args { [key: string]: any }
@@ -35,37 +36,37 @@ export class Driver {
         switch (browserType) {
             case 'chrome':
                 launchOptionsArgs['channel'] = 'chrome'
-                this.#browser = await chromium.launch(launchOptionsArgs)
+                this.browser = await chromium.launch(launchOptionsArgs)
                 break
             case 'chromium':
-                this.#browser = await chromium.launch(launchOptionsArgs)
+                this.browser = await chromium.launch(launchOptionsArgs)
                 break
             case 'firefox':
-                this.#browser = await firefox.launch(launchOptionsArgs)
+                this.browser = await firefox.launch(launchOptionsArgs)
                 break
             case 'msedge':
                 launchOptionsArgs['channel'] = 'msedge'
-                this.#browser = await chromium.launch(launchOptionsArgs)
+                this.browser = await chromium.launch(launchOptionsArgs)
                 break
             case 'webkit':
-                this.#browser = await webkit.launch(launchOptionsArgs)
+                this.browser = await webkit.launch(launchOptionsArgs)
                 break
             default:
                 throw new Error(`Unsupported browser type: ${browserType}`)
         }
 
-        this.#context = await this.#browser.newContext({
+        this.context = await this.browser.newContext({
             viewport: { width: 1280, height: 720 },
             recordVideo: { dir: 'reports/videos/' }
         })
 
-        this.page = await this.#context.newPage()
+        this.page = await this.context.newPage()
     }
 
     async getElement(locatorName: string) {
         if (!this.page) throw new Error('Browser is not launched. Call launchBrowser() first.')
         let element: Locator | null = null
-        let [attribute, attributeValue] = await this.#pageObject.get(locatorName)
+        let [attribute, attributeValue] = await this.pageObject.get(locatorName)
         switch (attribute.toLowerCase()) {
             case 'id':
                 element = await this.page.locator('#' + attributeValue)
@@ -113,10 +114,10 @@ export class Driver {
     }
 
     async closeBrowser() {
-        if (this.#browser) {
-            await this.#browser.close()
-            this.#browser = null
-            this.#context = null
+        if (this.browser) {
+            await this.browser.close()
+            this.browser = null
+            this.context = null
             this.page = null
         }
     }
