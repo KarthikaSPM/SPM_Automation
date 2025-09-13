@@ -5,6 +5,7 @@ import {CheckBox} from "./element/CheckBox";
 import {Click} from "./element/Click";
 import {DoubleClick} from "./element/DoubleClick";
 import {BrowserWait} from "./browser/BrowserWait";
+import {RadioButton} from "./element/RadioButton";
 
 export class WebAppDriver {
 
@@ -15,6 +16,7 @@ export class WebAppDriver {
     click: Click | undefined
     doubleClick: DoubleClick | undefined
     browserWait: BrowserWait | undefined
+    radioButton: RadioButton | undefined
 
     constructor() {
     }
@@ -28,5 +30,6 @@ export class WebAppDriver {
         this.checkBox = await new CheckBox(this.#driver)
         this.click = await new Click(this.#driver)
         this.doubleClick = await new DoubleClick(this.#driver)
+        this.radioButton = await new RadioButton(this.#driver)
     }
 }
