@@ -16,6 +16,4 @@ Feature: Test1 Features
     Scenario: Add pen to cart
         Given I open "chrome" browser
         Then I add pen to the cart
-        Then I wait for 1 seconds
         Then I click on "eystore.addToCart"
-        Then I wait for 3 seconds
