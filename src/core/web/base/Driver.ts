@@ -1,7 +1,7 @@
 import { chromium, firefox, webkit, Browser, BrowserContext, Page } from 'playwright';
 import { Constants } from '../../util/Constants';
 import { PageObject } from '../config/PageObject';
-import {Locator} from "@playwright/test";
+import {LaunchOptions, Locator} from "@playwright/test";
 
 export class Driver {
 
@@ -20,17 +20,14 @@ export class Driver {
             console.log('Existing Browser closed and new one is launched')
         }
 
-        interface args { [key: string]: any }
-        let launchOptionsArgs: args = {
-            ignoreDefaultArgs: ['--enable-automation',
-                '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage',
-                '--disable-infobars', '--window-position=0,0', '--ignore-certificate-errors',
-                '--ignore-ssl-errors', '--disable-blink-features=AutomationControlled',
-                '--disable-web-security', '--disable-features=IsolateOrigins,site-per-process',
-                '--disable-extensions', '--remote-allow-origins=*', '--ignore-certificate-errors-spki-list',
-                '--disable-popup-blocking'],
+        let launchOptionsArgs: LaunchOptions = {
             headless: Constants.BROWSWER_HEADLESS,
-            slowMo: Constants.BROWSWER_SLOWMO
+            slowMo: Constants.BROWSWER_SLOWMO,
+            args: ['--start-maximized', '--ignore-certificate-errors', '--enable-automation', '--remote-allow-origins=*',
+                '--disable-dev-shm-usage', '--disable-popup-blocking', '--disable-infobars', '--window-position=0,0',
+                '--ignore-ssl-errors', '--disable-extensions', '--ignore-certificate-errors-ski-list',
+                '--disable-web-security', '--no-sandbox', '--enable-automation'
+            ]
         }
 
         switch (browserType) {
@@ -56,7 +53,7 @@ export class Driver {
         }
 
         this.context = await this.browser.newContext({
-            viewport: { width: 1280, height: 720 },
+            viewport: null, //{ width: 1920, height: 1080 }, //{width: 1280, height: 720}
             recordVideo: { dir: 'reports/videos/' }
         })
 
@@ -69,31 +66,31 @@ export class Driver {
         let [attribute, attributeValue] = await this.pageObject.get(locatorName)
         switch (attribute.toLowerCase()) {
             case 'id':
-                element = await this.page.locator('#' + attributeValue)
+                element = await this.page.locator('#' + attributeValue).first()
                 break
             case 'label':
-                element = await this.page.getByLabel(attributeValue)
+                element = await this.page.getByLabel(attributeValue).first()
                 break
             case 'name':
-                element = await this.page.locator('[name="' + attributeValue + '"]')
+                element = await this.page.locator('[name="' + attributeValue + '"]').first()
                 break
             case 'xpath':
-                element = await this.page.locator(attributeValue)
+                element = await this.page.locator(attributeValue).first()
                 break
             case 'placeholder':
-                element = await this.page.getByPlaceholder(attributeValue)
+                element = await this.page.getByPlaceholder(attributeValue).first()
                 break
             case 'title':
-                element = await this.page.getByTitle(attributeValue)
+                element = await this.page.getByTitle(attributeValue).first()
                 break
             case 'classname':
-                element = await this.page.locator('.' + attributeValue)
+                element = await this.page.locator('.' + attributeValue).first()
                 break
             case 'text':
-                element = await this.page.getByText(attributeValue)
+                element = await this.page.getByText(attributeValue).first()
                 break
             case 'testid':
-                element = await this.page.getByTestId(attributeValue)
+                element = await this.page.getByTestId(attributeValue).first()
                 break
         }
         if (element) {

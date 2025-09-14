@@ -24,14 +24,8 @@ export class PageObject {
             for (let locator in this.#locators[page][element]) {
                 if (!(locator === 'value') && locator !== '') {
                     switch (locator.toLowerCase()) {
-                        case 'id':
-                        case 'css':
-                        case 'name':
-                        case 'xpath':
-                        case 'tagname':
-                        case 'linktext':
-                        case 'classname':
-                        case 'partiallinktext':
+                        case 'id': case 'label': case 'name': case 'xpath': case 'placeholder':
+                        case 'title': case 'classname': case 'text': case 'testid':
                             return [locator.toLowerCase(), this.#locators[page][element][locator] || '']
                     }
                 }

@@ -1,16 +1,7 @@
-home:
-  username: {xpath: 'idname', value: 256}
-  password: {xpath: 'idpassword', value: 'pwd123'}
-  search: {name: 'btnK'}
-  nothanks: {xpath: '//*[@id="yDmH0d"]/c-wiz/div/div/c-wiz/div/div/div/div[2]/div[2]/button'}
-  searchbox: {name: 'q'}
-
-youtube:
-  url: {value: 'https://www.youtube.com'}
-  searchBox: {xpath: '//*[@placeholder="Search"]'}
-  searchButton: {xpath: '//button[@id="search-icon-legacy"]'}
-
 eystore:
   url: {value: 'https://ey.corpmerchandise.com'}
-  searchBox: {xpath: '//*[@id="searchTextBox"]'}
+  searchBox: {xpath: '//*[@id="searchForm"]/div[1]/span[1]/input'}
   searchButton: {xpath: '//*[@id="search_mini_form"]/div/button'}
+  mardi-pen: {xpath: '//*[@id="1543012"]'}
+  quantity: {id: 'Quantity'}
+  addToCart: {id: 'button-addtocart_1543012'}
