@@ -23,7 +23,7 @@ export class Driver {
         let launchOptionsArgs: LaunchOptions = {
             headless: Constants.BROWSWER_HEADLESS,
             slowMo: Constants.BROWSWER_SLOWMO,
-            args: ['--start-maximized', '--ignore-certificate-errors', '--enable-automation', '--remote-allow-origins=*',
+            args: ['--window-size=1920,1080', '--ignore-certificate-errors', '--enable-automation', '--remote-allow-origins=*',
                 '--disable-dev-shm-usage', '--disable-popup-blocking', '--disable-infobars', '--window-position=0,0',
                 '--ignore-ssl-errors', '--disable-extensions', '--ignore-certificate-errors-ski-list',
                 '--disable-web-security', '--no-sandbox', '--enable-automation'

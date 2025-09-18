@@ -5,3 +5,7 @@ eystore:
   mardi-pen: {xpath: '//*[@id="1543012"]'}
   quantity: {id: 'Quantity'}
   addToCart: {id: 'button-addtocart_1543012'}
+  text: {xpath: '//*[@id="Blog1"]/div[1]/div/div/div/div/h3/a'}
+blogspot:
+  text: {xpath: '//*[@id="Blog1"]/div[1]/div/div/div/div/h3/a'}
+  name: {id: 'name'}

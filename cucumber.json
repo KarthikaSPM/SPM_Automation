@@ -2,8 +2,8 @@
     "default": {
         "dryRun": false,
         "requireModule": ["ts-node/register"],
-        "require": ["src/steps/**/*.ts"],
-        "paths": ["src/test/**/*.feature"],
+        "require": ["src/definitions/**/*.ts"],
+        "paths": ["test/**/*.feature"],
         "format": [
             "json:reports/cucumber-report.json",
             "html:reports/cucumber-report.html"
@@ -12,7 +12,7 @@
             "snippetInterface": "async-await"
         },
         "publish": false,
-        "retry": 1,
+        "retry": 0,
         "parallel": 0
     },
     "ra": {
@@ -27,8 +27,10 @@
         "formalOptions": {
             "snippetInterface": "async-await"
         },
+      "default": {
+        "timeout": 10000},
         "publish": false,
-        "retry": 1,
+        "retry": 0,
         "parallel": 4
     }
 }

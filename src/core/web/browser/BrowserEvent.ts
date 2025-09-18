@@ -19,4 +19,10 @@ export class BrowserEvent {
         return await this.#driver.page?.screenshot()
     }
 
+    async driverClose(){
+        await this.#driver.closeBrowser();
+    }
+
+
+
 }
