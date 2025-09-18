@@ -16,7 +16,6 @@ Feature: Test1 Features
  Scenario: Open Blogspot
    Given I open "chrome" browser
    Then I navigate to "https://testautomationpractice.blogspot.com/"
-   Then I verify element "blogspot.text" should have text "GUI Elements"
-   Then I should see page title as "Automation Testing Practice"
-   Then I should see "id" value for "blogspot.name" as "name"
-   Then I close browser
+   Then I verify element "blogspot.text" should have text "GUI Elementss" with soft assert
+   Then I should see page title as "Automation Testing Practice1" with soft assert
+   Then I should see "id" value for "blogspot.name" as "name1"
