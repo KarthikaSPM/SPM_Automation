@@ -7,6 +7,7 @@ import {BrowserWait} from "./browser/BrowserWait";
 import {RadioButton} from "./element/RadioButton";
 import {BrowserEvent} from "./browser/BrowserEvent";
 import {Assertion} from "./validation/Assertion";
+import {SoftAssert} from "./validation/SoftAssertion";
 
 export class WebAppDriver {
 
@@ -19,9 +20,10 @@ export class WebAppDriver {
     radioButton: RadioButton | undefined
     browserEvent: BrowserEvent | undefined
     assertion: Assertion|undefined
+    softassertion:SoftAssert|undefined
 
-    constructor() {
-    }
+
+    constructor() {}
 
     async initialize(browserType: string) {
         this.#driver = await new Driver();
@@ -34,7 +36,9 @@ export class WebAppDriver {
         this.browserWait = await new BrowserWait(this.#driver)
         this.browserEvent = await new BrowserEvent(this.#driver)
         this.assertion = await new Assertion(this.#driver)
+        this.softassertion = await new SoftAssert()
     }
+
 
     async getValue(objName: string) { return this.#driver?.pageObject.getValue(objName); }
 }

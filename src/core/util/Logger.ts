@@ -1,16 +1,26 @@
-// src/utils/Logger.ts
 import pino from 'pino';
+import fs from 'fs';
+import { Constants } from './Constants';
 
-const logger = pino({
-    transport: {
-        target: 'pino-pretty',
-        options: {
-            colorize: true, // for terminal output
-            translateTime: 'yyyy-mm-dd HH:MM:ss',
-            ignore: 'pid,hostname', // cleaner output
+const isCI = Constants.LOG_FILE;
+
+export const logger = isCI
+    ? pino(
+        {
+            // Override timestamp for readable format
+            timestamp: () => `time="${new Date().toISOString()}"`
         },
-    },
-    level: process.env.LOG_LEVEL || 'info', // can be 'debug', 'warn', 'error'
-});
-
-export default logger;
+        fs.createWriteStream(Constants.LOG_PATH, { flags: 'a' })
+    )
+    : pino({
+        transport: {
+            target: 'pino-pretty',
+            options: {
+                colorize: true,
+                translateTime: 'yyyy-MM-dd HH:mm:ss', // Pretty console timestamp
+                ignore: 'pid,hostname',
+                levelFirst: true,
+            },
+        },
+        level: process.env.LOG_LEVEL || 'info',
+    });

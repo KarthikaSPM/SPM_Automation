@@ -1,36 +1,48 @@
 {
-    "default": {
-        "dryRun": false,
-        "requireModule": ["ts-node/register"],
-        "require": ["src/definitions/**/*.ts"],
-        "paths": ["test/**/*.feature"],
-        "format": [
-            "json:reports/cucumber-report.json",
-            "html:reports/cucumber-report.html"
-        ],
-        "formalOptions": {
-            "snippetInterface": "async-await"
-        },
-        "publish": false,
-        "retry": 0,
-        "parallel": 0
+  "default": {
+    "dryRun": false,
+    "requireModule": [
+      "ts-node/register"
+    ],
+    "require": [
+      "src/definitions/**/*.ts"
+    ],
+    "paths": [
+      "test/**/*.feature"
+    ],
+    "timeout": 20000,
+    "format": [
+      "json:reports/cucumber-report.json",
+      "html:reports/cucumber-report.html"
+    ],
+    "formalOptions": {
+      "snippetInterface": "async-await"
     },
-    "ra": {
-        "dryRun": false,
-        "requireModule": ["ts-node/register"],
-        "require": ["src/definitions/**/*.ts"],
-        "paths": ["test/RA/features/**/*.feature"],
-        "format": [
-            "json:reports/cucumber-report.json",
-            "html:reports/cucumber-report.html"
-        ],
-        "formalOptions": {
-            "snippetInterface": "async-await"
-        },
-      "default": {
-        "timeout": 10000},
-        "publish": false,
-        "retry": 0,
-        "parallel": 4
-    }
+    "publish": false,
+    "retry": 0,
+    "parallel": 0
+  },
+  "ra": {
+    "dryRun": false,
+    "requireModule": [
+      "ts-node/register"
+    ],
+    "require": [
+      "src/definitions/**/*.ts"
+    ],
+    "paths": [
+      "test/RA/features/**/*.feature"
+    ],
+    "format": [
+      "json:reports/cucumber-report.json",
+      "html:reports/cucumber-report.html"
+    ],
+    "formalOptions": {
+      "snippetInterface": "async-await"
+    },
+    "timeout": 20000,
+    "publish": false,
+    "retry": 0,
+    "parallel": 0
+  }
 }

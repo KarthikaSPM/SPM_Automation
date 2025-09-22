@@ -10,7 +10,7 @@ export class Constants {
 
     static ROOT_PATH: string | null = process.cwd() + path.sep
     static SRC_PATH: string | null = Constants.ROOT_PATH + 'src' + path.sep
-    static TEST_PATH: string | null = Constants.ROOT_PATH + 'test/RA' + path.sep
+    static TEST_PATH: string | null = Constants.ROOT_PATH + 'test' + path.sep
 
     static APPL_NAME: string | null = process.env.profile ?? '' //this is environment variable named "profile" passed thru package.json - scripts
     static APPL_PATH: string | null = (Constants.TEST_PATH ?? '') + Constants.APPL_NAME + path.sep
@@ -22,6 +22,8 @@ export class Constants {
     static BROWSWER_SLOWMO: number = parseInt(Constants.PROPERTIES['browser.slowmo'] || '0')
     static STEPWISE_SCREENSHOT: boolean = Constants.PROPERTIES['stepwise.screenshot'] === 'true'
     static PAGE_OBJECT_TYPE: string = Constants.PROPERTIES['page.object.type'] || 'yaml'
+    static LOG_FILE: boolean = Constants.PROPERTIES['log.file'] ==='true'
+    static LOG_PATH:string = Constants.ROOT_PATH + 'logs' + path.sep + 'test.log'
 
     static LOCATORS: any = fileUtil.mergeYamlFiles(fileUtil.readAllFileNames(Constants.APPL_DATA_PATH, '.' + Constants.PAGE_OBJECT_TYPE))
 

@@ -13,6 +13,7 @@ export class BrowserEvent {
             throw new Error('Browser is not launched. Call launchBrowser() first.')
         }
         await this.#driver.page.goto(url, { waitUntil: 'domcontentloaded' })
+
     }
 
     async takeScreenshot() {

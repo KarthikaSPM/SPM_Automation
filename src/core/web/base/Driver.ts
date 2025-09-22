@@ -98,7 +98,7 @@ export class Driver {
             await element.evaluate(el => {
                 el.setAttribute('style', 'background: GreenYellow; border: 0px solid blue;')
             })
-            await this.page?.waitForTimeout(100);
+            // await this.page?.waitForTimeout(20000);
             await element.evaluate(el => {
                 el.setAttribute('style', 'background:; border: 0px solid blue;')
             })

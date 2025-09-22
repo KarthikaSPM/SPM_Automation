@@ -1,5 +1,6 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 
+
 Given(/^I open "([^"]*)" browser$/, async function (browser: string) {
     await this.webDriver.initialize(browser)
 })
@@ -8,7 +9,7 @@ Then(/^I close browser$/, async function(){
     await this.webDriver.browserEvent.driverClose();
 })
 
-When(/^I navigate to "([^"]*)"$/, async function (url: string) {
+When(/^I navigate to "([^"]*)"$/,{timeout:10000}, async function (url: string) {
     await this.webDriver.browserEvent.navigateTo(url)
 })
 
@@ -28,7 +29,7 @@ Then(/^I wait for "([^"]*)" seconds$/, async function (seconds: number) {
     await this.webDriver.browserWait.forTimeOut(seconds * 1000)
 })
 
-Then(/^I verify element "([^"]*)" should have text "([^"]*)" with (soft|hard) assert$/, async function (locator: string, expectedText: string,assertType: string) {
+Then(/^I verify element "([^"]*)" should have text "([^"]*)" with (soft|hard) assert$/, { timeout: 30000 }, async function (locator: string, expectedText: string,assertType: string) {
     let present = true;
     const isSoft = assertType === "soft";
     await this.webDriver.assertion.checkElementText(locator, expectedText, present,isSoft)
@@ -43,13 +44,13 @@ Then(/^I verify element "([^"]*)" should not have text "([^"]*)" with (soft|hard
 Then(/^I should see page title as "([^"]*)" with (soft|hard) assert$/, async function (expectedTitle: string,assertType: string) {
     let present = true;
     const isSoft = assertType === "soft";
-    await this.webDriver.assertion.checkTitle(expectedTitle, present, isSoft)
+    await this.webDriver.assertion.checkTitle(expectedTitle, present, isSoft,this.attach)
 })
 
 Then(/^I should not see page title as "([^"]*)" with (soft|hard) assert$/, async function (expectedTitle: string,assertType: string) {
     let present = false;
     const isSoft = assertType === "soft";
-    await this.webDriver.assertion.checkTitle(expectedTitle, present, isSoft)
+    await this.webDriver.assertion.checkTitle(expectedTitle, present, isSoft,this.attach)
 })
 
 Then(/^I should see "([^"]*)" value for "([^"]*)" as "([^"]*)" with (soft|hard) assert$/, async function (attributeName: string, locator: string, expectedValue: string, assertType: string) {
@@ -61,42 +62,36 @@ Then(/^I should see "([^"]*)" value for "([^"]*)" as "([^"]*)" with (soft|hard) 
 Then(/^I should not see "([^"]*)" value for "([^"]*)" as "([^"]*)" with (soft|hard) assert$/, async function (attributeName: string, locator: string, expectedValue: string, assertType: string) {
     let present = false;
     const isSoft = assertType === "soft";
-    await this.webDriver.assertion.checkAttributeText(locator, attributeName, expectedValue, present, isSoft)
+    await this.webDriver.assertion.checkElementText(locator, attributeName, expectedValue, present,assertType)
 })
-Then(/^I verify element "([^"]*)" should have text "([^"]*)"$/, async function (locator: string, expectedText: string,assertType: string) {
+Then(/^I verify element "([^"]*)" should have text "([^"]*)"$/, async function (locator: string, expectedText: string) {
     let present = true;
-    const isSoft = assertType === "hard";
-    await this.webDriver.assertion.checkElementText(locator, expectedText, present,isSoft)
+    await this.webDriver.assertion.checkElementText(locator, expectedText, present,false)
 })
 
-Then(/^I verify element "([^"]*)" should not have text "([^"]*)"$/, async function (locator: string, expectedText: string,assertType: string) {
+Then(/^I verify element "([^"]*)" should not have text "([^"]*)"$/, async function (locator: string, expectedText: string) {
     let present = false;
-    const isSoft = assertType === "hard";
-    await this.webDriver.assertion.checkElementText(locator, expectedText, present,isSoft)
+    await this.webDriver.assertion.checkElementText(locator, expectedText, present,false)
 })
 
-Then(/^I should see page title as "([^"]*)"$/, async function (expectedTitle: string,assertType: string) {
+Then(/^I should see page title as "([^"]*)"$/, async function (expectedTitle: string) {
     let present = true;
-    const isSoft = assertType === "hard";
-    await this.webDriver.assertion.checkTitle(expectedTitle, present, isSoft)
+    await this.webDriver.assertion.checkTitle(expectedTitle, present,false)
 })
 
-Then(/^I should not see page title as "([^"]*)"$/, async function (expectedTitle: string,assertType: string) {
+Then(/^I should not see page title as "([^"]*)"$/, async function (expectedTitle: string) {
     let present = false;
-    const isSoft = assertType === "hard";
-    await this.webDriver.assertion.checkTitle(expectedTitle, present, isSoft)
+    await this.webDriver.assertion.checkTitle(expectedTitle, present,false)
 })
 
-Then(/^I should see "([^"]*)" value for "([^"]*)" as "([^"]*)"$/, async function (attributeName: string, locator: string, expectedValue: string, assertType: string) {
+Then(/^I should see "([^"]*)" value for "([^"]*)" as "([^"]*)"$/, async function (attributeName: string, locator: string, expectedValue: string) {
     let present = true;
-    const isSoft = assertType === "hard";
-    await this.webDriver.assertion.checkAttributeText(locator, attributeName, expectedValue, present, isSoft)
+    await this.webDriver.assertion.checkAttributeText(locator, attributeName, expectedValue, present,false)
 })
 
-Then(/^I should not see "([^"]*)" value for "([^"]*)" as "([^"]*)"$/, async function (attributeName: string, locator: string, expectedValue: string, assertType: string) {
+Then(/^I should not see "([^"]*)" value for "([^"]*)" as "([^"]*)"$/, async function (attributeName: string, locator: string, expectedValue: string) {
     let present = false;
-    const isSoft = assertType === "hard";
-    await this.webDriver.assertion.checkAttributeText(locator, attributeName, expectedValue, present, isSoft)
+    await this.webDriver.assertion.checkAttributeText(locator, attributeName, expectedValue, present,false)
 })
 
 

@@ -1,5 +1,8 @@
 import {Driver} from "../base/Driver";
-import logger from "../../util/Logger";
+import {logger} from "../../util/Logger";
+import {SoftAssert} from "./SoftAssertion";
+import chalk from 'chalk';
+import {Constants} from "../../util/Constants";
 
 
 class NoStackError extends Error {
@@ -18,10 +21,11 @@ class NoStackError extends Error {
 export class Assertion {
 
     #driver: Driver
-    private softAssertErrors: any;
+   public softAssert: SoftAssert;
 
     constructor(driver: Driver) {
         this.#driver = driver
+      this.softAssert = new SoftAssert();
     }
 
     async checkElementText(locator: string, expectedElementText: string, present: boolean, softAssert: boolean) {
@@ -48,10 +52,9 @@ export class Assertion {
             if (assertionFailed) {
                 if (softAssert) {
                     // console.error('[SOFT ASSERT]', message);
-                    logger.error({ tag: 'SOFT ASSERT', error: message }, 'Soft assertion failed');
+                    logger.error({ tag: 'SOFT ASSERT', error: chalk.red(message) }, 'Soft assertion failed');
                     // Optional: push this error into a custom soft assertion collector
-                    this.softAssertErrors = this.softAssertErrors || [];
-                    this.softAssertErrors.push(message);
+                    this.softAssert.assert(false, message);
                 } else {
                     throw new NoStackError(message); // or use NoStackError
                 }
@@ -62,30 +65,48 @@ export class Assertion {
         }
     }
 
-    // async checkTitle(expectedTitle: string, present: boolean) {
-    //     const page = this.#driver.page;
-    //     if (!page) {
-    //         throw new Error("Page is not initialized.");
-    //     }
-    //     let actualTitle = await page.title();
-    //     if (present) {
-    //         if (actualTitle !== expectedTitle) {
-    //             throw new NoStackError(
-    //                 `Page Title Not Matched:\nExpected Page Title: ${expectedTitle}\nActual Page Title: ${actualTitle}`
-    //             );
-    //         } else {
-    //             console.log(`Page title matched: "${actualTitle}"`);
-    //         }
-    //     } else {
-    //         if (actualTitle === expectedTitle) {
-    //             throw new NoStackError(
-    //                 `Page Title Matched (but expected not to).\nExpected NOT: ${expectedTitle}\nActual: ${actualTitle}`);
-    //         } else {
-    //             console.log(`Page Title does not match "${expectedTitle}"`);
-    //         }
-    //     }
-    // }
+    async checkTitle(expectedTitle: string, present: boolean, softAssert: boolean,attach?: (data: any, mediaType?: string)=> Promise<void>) {
+        const page = this.#driver.page;
+        if (!page) {
+            throw new Error("Page is not initialized.");
+        }
 
+        console.log(Constants.LOG_PATH)
+
+        const actualTitle = await page.title();
+        let assertionFailed = false;
+        let message = '';
+        if (present) {
+            if (actualTitle !== expectedTitle) {
+                message = `Page Title Mismatch:\nExpected: "${expectedTitle}"\nActual: "${actualTitle}"`;
+                assertionFailed = true;
+            }
+        }
+        else {
+            if (actualTitle === expectedTitle) {
+                message = `Page Title Unexpectedly Matches:\nExpected NOT: "${expectedTitle}"\nActual: "${actualTitle}"`;
+                assertionFailed = true;
+            }
+        }
+        if (assertionFailed) {
+            if (softAssert) {
+                // console.error('[SOFT ASSERT]', message);
+                logger.error({ tag: 'SOFT ASSERT', error: message}, 'Soft assertion failed');
+                // Optional: push this error into a custom soft assertion collector
+                this.softAssert.assert(false, message);
+                if(attach) {
+                    await attach(`❌ Soft Assertion Failed: ${message}`, 'text/plain')
+                }
+            } else {
+                // Hard assert — fail immediately
+                throw new NoStackError(message); // or use NoStackError
+            }
+        } else {
+            // console.log(`Page title check passed: "${actualTitle}"`);
+            logger.info(`Page title check passed: "${actualTitle}"`);
+
+        }
+    }
 
     async getAttributeValue(locator: string, attributeName: string): Promise<string> {
 
@@ -116,71 +137,28 @@ export class Assertion {
             if (actualAttributeValue !== expectedValue) {
                 message = `Attribute value not matched.\nExpected: ${expectedValue}\nActual: ${actualAttributeValue}`
                 assertionFailed = true
-
-            } else {
+            }
+        }
+        else {
                 if (actualAttributeValue === expectedValue) {
-                    message = 'Attribute value matched (but expected not to).\nExpected NOT: ${expectedValue}\nActual: ${actualValue}'
+                    message = `Attribute value matched (but expected not to).\nExpected NOT: ${expectedValue}\nActual: ${actualAttributeValue}`
                     assertionFailed = true;
                 }
             }
 
             if (assertionFailed) {
                 if (softAssert) {
-                    // console.error('[SOFT ASSERT]', message);
-                    logger.error({ tag: 'SOFT ASSERT', error: message }, 'Soft assertion failed');
+                    // console.error(chalk.red('[SOFT ASSERT]'), chalk.red(message));
+                    logger.error({ tag: 'SOFT ASSERT', error: chalk.red(message) }, 'Soft assertion failed');
                     // Optional: push this error into a custom soft assertion collector
-                    this.softAssertErrors = this.softAssertErrors || [];
-                    this.softAssertErrors.push(message);
+                    this.softAssert.assert(false, message);
                 } else {
                     throw new NoStackError(message); // or use NoStackError
                 }
             } else {
-                // console.log(`Attribute check passed: "${actualAttributeValue}"`);
                 logger.info(`Attribute check passed: "${actualAttributeValue}"`);
 
             }
         }
-    }
-
-    async checkTitle(expectedTitle: string, present: boolean, softAssert: boolean) {
-        const page = this.#driver.page;
-        if (!page) {
-            throw new Error("Page is not initialized.");
-        }
-
-        const actualTitle = await page.title();
-        let assertionFailed = false;
-        let message = '';
-
-        if (present) {
-            if (actualTitle !== expectedTitle) {
-                message = `Page Title Mismatch:\nExpected: "${expectedTitle}"\nActual: "${actualTitle}"`;
-                assertionFailed = true;
-            }
-        } else {
-            if (actualTitle === expectedTitle) {
-                message = `Page Title Unexpectedly Matches:\nExpected NOT: "${expectedTitle}"\nActual: "${actualTitle}"`;
-                assertionFailed = true;
-            }
-        }
-
-        if (assertionFailed) {
-            if (softAssert) {
-                // console.error('[SOFT ASSERT]', message);
-                logger.error({ tag: 'SOFT ASSERT', error: message }, 'Soft assertion failed');
-                // Optional: push this error into a custom soft assertion collector
-                this.softAssertErrors = this.softAssertErrors || [];
-                this.softAssertErrors.push(message);
-            } else {
-                // Hard assert — fail immediately
-                throw new NoStackError(message); // or use NoStackError
-            }
-        } else {
-            // console.log(`Page title check passed: "${actualTitle}"`);
-            logger.info(`Page title check passed: "${actualTitle}"`);
-
-        }
-    }
-
 
 }
