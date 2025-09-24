@@ -1,4 +1,3 @@
-
 import { Driver } from "../base/Driver";
 
 export class RadioButton {
@@ -15,5 +14,18 @@ export class RadioButton {
             await element.check()
         }
     }
+
+    async checkRadiobtnVal(locator: string,value: string) {
+            console.log("inside Radio")
+            console.log(locator.replace("<value>",value))
+            let element = await this.#driver.getElement(locator)
+
+            if (element) {
+            console.log("inside Radio")
+                await element.check()
+            }
+        }
+
+
 
 }

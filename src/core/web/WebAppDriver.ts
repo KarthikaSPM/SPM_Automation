@@ -8,6 +8,12 @@ import {RadioButton} from "./element/RadioButton";
 import {BrowserEvent} from "./browser/BrowserEvent";
 import {Assertion} from "./validation/Assertion";
 import {SoftAssert} from "./validation/SoftAssertion";
+import {Dropdown} from "./element/Dropdown";
+import {MouseHover} from "./element/MouseHover"
+import {ElementGetter} from "./element/ElementGetter"
+import {ElementAction} from "./element/ElementAction"
+import {Alert} from "./element/Alert"
+import {DatePicker} from "./element/DatePicker"
 
 export class WebAppDriver {
 
@@ -21,9 +27,15 @@ export class WebAppDriver {
     browserEvent: BrowserEvent | undefined
     assertion: Assertion|undefined
     softassertion:SoftAssert|undefined
+    dropdown: Dropdown | undefined
+    mousehover: MouseHover | undefined
+    elementgetter: ElementGetter | undefined
+    elementaction: ElementAction | undefined
+    alert: Alert | undefined
+    datepicker: DatePicker | undefined
 
-
-    constructor() {}
+    constructor() {
+    }
 
     async initialize(browserType: string) {
         this.#driver = await new Driver();
@@ -37,8 +49,13 @@ export class WebAppDriver {
         this.browserEvent = await new BrowserEvent(this.#driver)
         this.assertion = await new Assertion(this.#driver)
         this.softassertion = await new SoftAssert()
+        this.dropdown=await new Dropdown(this.#driver)
+        this.mousehover=await new MouseHover(this.#driver)
+        this.elementgetter=await new ElementGetter(this.#driver)
+        this.elementaction=await new ElementAction(this.#driver)
+        this.alert=await new Alert(this.#driver)
+        this.datepicker=await new DatePicker(this.#driver)
     }
-
 
     async getValue(objName: string) { return this.#driver?.pageObject.getValue(objName); }
 }

@@ -13,9 +13,16 @@ Feature: Test1 Features
     #     Then I wait for 3 seconds
 
 
- Scenario: Open Blogspot
-   Given I open "chrome" browser
-   Then I navigate to "https://testautomationpractice.blogspot.com/"
-   Then I verify element "blogspot.text" should have text "GUI Elementss" with soft assert
-   Then I should see page title as "Automation Testing Practice1" with soft assert
-   Then I should see "id" value for "blogspot.name" as "name1"
+ #Scenario: Open Blogspot
+  # Given I open "chrome" browser
+ #  Then I navigate to "https://testautomationpractice.blogspot.com/"
+  # Then I verify element "blogspot.text" should have text "GUI Elementss" with soft assert
+  # Then I should see page title as "Automation Testing Practice1" with soft assert
+  # Then I should see "id" value for "blogspot.name" as "name1"
+
+  Scenario: New Test scenario
+  Given I open "chrome" browser
+    When I navigate to "https://testautomationpractice.blogspot.com/"
+    Then I verify the text "testpage.title" should have text "GUI Elements"
+    And I enter the details in the Home Page
+    Then I verify the text "testpage.title" should have text "GUI Elements"

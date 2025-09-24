@@ -1,0 +1,17 @@
+testpage:
+  url: {value: 'https://ey.corpmerchandise.com'}
+  title: {xpath: '//*[@itemprop="name"]/a'}
+  startbtn: {xpath: '//button[@name="start"]'}
+  name: {id: 'name'}
+  email: {id: 'email'}
+  phone: {id: 'phone'}
+  address: {id: 'textarea'}
+  gender: {xpath: '//input[@value="<value>"]'}
+  country: {id: 'country'}
+  pointme: {xpath: '//button[text()="Point Me"]'}
+  alert1: {id: 'alertBtn'}
+  confirmalert: {id: 'confirmBtn'}
+  btnnewtab: {xpath: '//button[text()="New Tab"]'}
+  op: {xpath: '//li/a[text()="Agile Methodology"]'}
+  dragin: {id: 'draggable'}
+  dragto: {id: 'droppable'}
