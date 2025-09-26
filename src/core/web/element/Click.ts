@@ -16,4 +16,20 @@ export class Click {
         }
     }
 
+    /**
+         * Clicks on the element if it is visible.
+         * Returns true if click was performed, false if element not found or not visible.
+         * @param locator - The selector string to locate the element.
+         * @returns Promise<boolean> indicating whether the click happened.
+         */
+        async clickIfVisible(locator: string): Promise<boolean> {
+            const element = await this.#driver.getElement(locator);
+            if (!element) return false;
+            if (await element.isVisible()) {
+                await element.click();
+                return true;
+            }
+            return false;
+        }
+
 }

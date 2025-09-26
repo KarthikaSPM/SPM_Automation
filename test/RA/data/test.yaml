@@ -15,3 +15,5 @@ testpage:
   op: {xpath: '//li/a[text()="Agile Methodology"]'}
   dragin: {id: 'draggable'}
   dragto: {id: 'droppable'}
+  dynamiccontent: {xpath: '//h2[text()="Dynamic Web Table"]'}
+  daycheck: {id: 'tuesday'}

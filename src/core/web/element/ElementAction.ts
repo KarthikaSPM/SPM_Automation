@@ -75,4 +75,15 @@ async checkElementText(locator:string, expectedValue: string,present: boolean) {
   }
 
 
+async waitForElement(selector: string, timeout = 5000): Promise<void> {
+
+if (!this.#driver?.page) {
+  throw new Error('Page is not initialized.');
+}
+await this.#driver.page.waitForSelector(selector, { timeout });
+
+  }
+
+
+
 }

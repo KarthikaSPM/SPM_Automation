@@ -60,7 +60,80 @@ async switchToDefaultTab() {
     this.#driver.page = defaultPage;
 }
 
+/**
+     * Reloads the current page.
+     * @throws Error if no page is available to reload.
+     */
+    async reloadPage(): Promise<void> {
+        if (!this.#driver?.page) {
+            throw new Error('No page available to reload');
+        }
+        await this.#driver.page.reload({ waitUntil: 'domcontentloaded' });
+        logger.info('Page reloaded');
+    }
 
+    /**
+         * Navigates back in browser history.
+         * @throws Error if no page is available to navigate back.
+         */
+        async goBack(): Promise<void> {
+            if (!this.#driver?.page) {
+                throw new Error('No page available to go back');
+            }
+            await this.#driver.page.goBack({ waitUntil: 'domcontentloaded' });
+            logger.info('Navigated back');
+        }
+
+
+    /**
+         * Navigates forward in browser history.
+         * @throws Error if no page is available to navigate forward.
+         */
+        async goForward(): Promise<void> {
+            if (!this.#driver?.page) {
+                throw new Error('No page available to go forward');
+            }
+            await this.#driver.page.goForward({ waitUntil: 'domcontentloaded' });
+            logger.info('Navigated forward');
+        }
+
+      /**
+          * Waits for an element matching the selector to appear on the page.
+          * @param selector - CSS selector to wait for.
+          * @param timeout - Maximum wait time in milliseconds (default 5000).
+          * @throws Error if no page is available to wait on.
+          */
+         async waitForSelector(selector: string, timeout = 5000): Promise<void> {
+             if (!this.#driver?.page) {
+                 throw new Error('No page available to wait for selector');
+             }
+             await this.#driver.page.waitForSelector(selector, { timeout });
+             logger.info(`Selector "${selector}" appeared on the page`);
+         }
+
+         /**
+              * Handles the next browser dialog, either accepting or dismissing it.
+              * @param accept - Whether to accept (true) or dismiss (false) the dialog. Defaults to true.
+              * @throws Error if no page is available to handle dialog.
+              */
+             async handleDialog(accept = true): Promise<void> {
+                 if (!this.#driver?.page) {
+                     throw new Error('No page available to handle dialog');
+                 }
+                 await new Promise<void>((resolve) => {
+                     this.#driver.page?.once('dialog', async (dialog) => {
+                         logger.info(`Dialog message: ${dialog.message()}`);
+                         if (accept) {
+                             await dialog.accept();
+                             logger.info('Dialog accepted');
+                         } else {
+                             await dialog.dismiss();
+                             logger.info('Dialog dismissed');
+                         }
+                         resolve();
+                     });
+                 });
+             }
 
 
 }

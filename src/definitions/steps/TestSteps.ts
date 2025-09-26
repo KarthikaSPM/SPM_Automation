@@ -15,7 +15,10 @@ Then('I enter the details in the Home Page',async function(){
     await this.webDriver.elementaction.fillText("testpage.phone","32412432523")
     await this.webDriver.elementaction.fillText("testpage.address","Test addresss")
     //await this.webDriver.radioButton.checkRadiobtnVal("//input[@value='<value>']","female")
-    await this.webDriver.dropdown.selectDropdown("testpage.country","Australia")
+   // await this.webDriver.checkbox.check("testpage.daycheck")
+    await this.webDriver.dropdown.selectDropdownbyValue("testpage.country","Australia")
+    await this.webDriver.dropdown.selectByIndex("testpage.country",2)
+    await this.webDriver.dropdown.getSelectedOption("testpage.country")
     await this.webDriver.mousehover.hoverOverElement("testpage.pointme")
     //await this.webDriver.click.on("testpage.alert1")
     //await this.webDriver.alert.acceptAlert()
@@ -49,7 +52,10 @@ await this.webDriver.datepicker.selectDateWithDropdown(
     23                           // day
 ) */
 
-await this.webDriver.mousehover.dragAndDrop("#draggable","#droppable")
-
+await this.webDriver.mousehover.dragAndDrop("testpage.dragin","testpage.dragto")
+await this.webDriver.mousehover.scrollToElement("testpage.dynamiccontent")
+console.log(await this.webDriver.dropdown.getAllOptions("testpage.country"))
+await this.webDriver.mousehover.rightClickElement("testpage.country")
+//await this.webDriver.elementaction.waitForElement("testpage.btnnewtab")
 
 })
